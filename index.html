@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="哲诺 — 学术论文的归档与评审" />
-  <meta name="theme-color" content="#0e0f0b" />
+  <meta name="theme-color" content="#ffffff" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" href="icon-192.png" />
   <title>哲诺 · PhiloCommit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="mobile.css" />
 </head>
@@ -21,10 +21,10 @@
   <!-- ══ SPLASH SCREEN ══ -->
   <div id="fl-splash">
     <div id="fl-splash-logo">
-      <div id="fl-splash-icon">战</div>
+      <div id="fl-splash-icon"><img src="logo.png" alt="PhiloCommit" style="width:40px;height:40px;object-fit:contain"></div>
       <div id="fl-splash-text">
-        <div id="fl-splash-cn">战线快报</div>
-        <div id="fl-splash-en">FRONTLINE DISPATCH</div>
+        <div id="fl-splash-cn">哲诺</div>
+        <div id="fl-splash-en">PHILOCOMMIT</div>
       </div>
     </div>
   </div>
@@ -45,10 +45,10 @@
   <header id="masthead">
     <div id="masthead-inner">
       <div id="brand" onclick="switchTab('全部')" role="button" tabindex="0">
-        <div id="brand-icon">✛</div>
+        <div id="brand-icon"><img src="logo.png" alt="logo" style="width:28px;height:28px;object-fit:contain"></div>
         <div id="brand-text">
-          <div id="brand-main">战线快报</div>
-          <div id="brand-sub">FRONTLINE · DISPATCH</div>
+          <div id="brand-main">哲诺</div>
+          <div id="brand-sub">PHILOCOMMIT</div>
         </div>
       </div>
 
@@ -77,7 +77,7 @@
     <!-- LEFT: FEED -->
     <section id="feed-col">
       <div id="feed-header">
-        <span id="feed-label">// 最新战报</span>
+        <span id="feed-label">// 最新论文</span>
         <span id="feed-count"></span>
       </div>
       <div id="donate-banner">
@@ -126,7 +126,7 @@
   <!-- ══ FOOTER ══ -->
   <footer id="site-footer">
     <div id="footer-inner">
-      <span id="footer-brand">战线快报 FRONTLINE DISPATCH</span>
+      <span id="footer-brand">哲诺 PHILOCOMMIT</span>
       <span id="footer-note">©2026 KalynaOSINT 版权所有</span>
       <span id="footer-tech">Powered by Frontline v1.0</span>
     </div>
@@ -188,7 +188,7 @@
   <!-- ARTICLE -->
   <div id="dlg-article" class="dialog dialog-wide">
     <div class="dlg-head">
-      <span class="dlg-title" id="art-dlg-label">// 文章详情</span>
+      <span class="dlg-title" id="art-dlg-label">// 论文详情</span>
       <button class="dlg-close" data-close="dlg-article">✕</button>
     </div>
     <div class="dlg-body" id="art-dlg-body"></div>
@@ -217,7 +217,7 @@
   <!-- PUBLISH (普通用户) -->
   <div id="dlg-publish" class="dialog dialog-wide">
     <div class="dlg-head">
-      <span class="dlg-title">发布文章</span>
+      <span class="dlg-title">提交论文</span>
       <button class="dlg-close" data-close="dlg-publish">✕</button>
     </div>
     <div class="dlg-body">
@@ -240,7 +240,7 @@
         </div>
         <div class="field-group span2">
           <label class="field-label">摘要</label>
-          <textarea id="pub2-desc" class="field-textarea" rows="3" placeholder="简短摘要…"></textarea>
+          <textarea id="pub2-desc" class="field-textarea" rows="3" placeholder="摘要…"></textarea>
         </div>
         <div class="field-group span2">
           <label class="field-label">图片（最多9张）</label>
@@ -268,7 +268,7 @@
       </div>
       <div class="pub-note">💡 只能在现有分类中发布。如需新增分类，请联系管理员。</div>
       <div class="form-actions" style="margin-top:12px">
-        <button class="btn-primary" id="btn-publish2">发布文章</button>
+        <button class="btn-primary" id="btn-publish2">提交论文</button>
         <button class="btn-ghost" onclick="Dialog.close('dlg-publish')">取消</button>
       </div>
     </div>
@@ -292,7 +292,7 @@
         <div class="form-grid">
           <div class="field-group span2">
             <label class="field-label">标题 <span class="req">*</span></label>
-            <input type="text" id="pub-title" class="field-input" placeholder="战报标题" />
+            <input type="text" id="pub-title" class="field-input" placeholder="论文标题" />
           </div>
           <div class="field-group">
             <label class="field-label">来源媒体 <span class="req">*</span></label>
@@ -308,7 +308,7 @@
           </div>
           <div class="field-group span2">
             <label class="field-label">摘要</label>
-            <textarea id="pub-desc" class="field-textarea" rows="3" placeholder="战况摘要…"></textarea>
+            <textarea id="pub-desc" class="field-textarea" rows="3" placeholder="摘要…"></textarea>
           </div>
           <div class="field-group span2">
             <label class="field-label">图片（最多9张）</label>
@@ -342,7 +342,7 @@
           </div>
         </div>
         <div class="form-actions">
-          <button class="btn-primary" id="btn-publish">发布文章</button>
+          <button class="btn-primary" id="btn-publish">提交论文</button>
           <button class="btn-ghost" onclick="Dialog.close('dlg-admin')">取消</button>
           <div id="pub-cats-note" class="pub-note" hidden>💡 只能在现有分类中发布。如需新增分类，请联系管理员。</div>
         </div>
@@ -521,7 +521,7 @@
 
     function showToast(msg) {
       var t = document.createElement('div');
-      t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:9999;background:#1a1c15;border:1px solid #2e3024;color:#c8c9b8;font-family:"Share Tech Mono",monospace;font-size:12px;padding:10px 16px;border-radius:8px;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,0.5)';
+      t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:9999;background:#ffffff;border:1px solid #dadce0;color:#202124;font-family:'Roboto',sans-serif;font-size:13px;padding:10px 16px;border-radius:8px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.15)';
       t.textContent = msg;
       document.body.appendChild(t);
       setTimeout(function(){ t.remove(); }, 4000);
@@ -537,7 +537,7 @@
       }
       var banner = document.createElement('div');
       banner.id = 'fl-push-banner';
-      banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:8000;background:#1a1c15;border-top:2px solid #c0392b;padding:12px 16px;display:flex;align-items:center;gap:12px;font-family:"Share Tech Mono",monospace;font-size:12px;color:#c8c9b8;box-shadow:0 -4px 20px rgba(0,0,0,0.5);animation:fl-banner-up 0.3s cubic-bezier(0.32,0.72,0,1) both';
+      banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:8000;background:#ffffff;border-top:2px solid #10458B;padding:12px 16px;display:flex;align-items:center;gap:12px;font-family:'Roboto',sans-serif;font-size:13px;color:#202124;box-shadow:0 -4px 20px rgba(0,0,0,0.12);animation:fl-banner-up 0.3s cubic-bezier(0.32,0.72,0,1) both';
       banner.innerHTML =
         '<span style="color:#c0392b;font-size:16px">🔔</span>' +
         '<span style="flex:1">开启通知，第一时间收到战报推送</span>' +
