@@ -56,8 +56,8 @@ var API = (function () {
    * Change API_MODE to 'remote' and set API_BASE_URL to enable
    * a real backend. JWT token is stored in localStorage.
    * ──────────────────────────────────────────────────────────── */
-  var API_MODE     = 'remote';           // 'local' | 'remote'  ← change to 'remote' when deploying
-  var API_BASE_URL = 'https://api.kalyna.homes'; // ← your Worker URL
+  var API_MODE     = 'local';           // 'local' | 'remote'  ← change to 'remote' when deploying
+  var API_BASE_URL = ''; // ← your Worker URL
 
   // Token key in localStorage
   var TOKEN_KEY = 'fl_token';
