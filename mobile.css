@@ -33,7 +33,7 @@ input, textarea, select { font-size: 16px !important; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 400;
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 0 var(--border), 0 4px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 1px 0 var(--border), 0 4px 20px rgba(0,0,0,0.10);
   /* Cover notch / dynamic island */
   padding-top: env(safe-area-inset-top, 0px);
 }
@@ -559,7 +559,7 @@ input, textarea, select { font-size: 16px !important; }
   min-height: calc(82px + env(safe-area-inset-bottom, 0px));
   background: var(--bg2);
   border-top: 1px solid var(--border);
-  box-shadow: 0 -6px 24px rgba(0,0,0,0.5);
+  box-shadow: 0 -6px 24px rgba(0,0,0,0.10);
   /* Stack content from the bottom up — input always anchored near bottom */
   display: flex; flex-direction: column;
   justify-content: flex-end;
