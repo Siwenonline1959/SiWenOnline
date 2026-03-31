@@ -1681,3 +1681,7 @@ dialog::backdrop { background: transparent; }
   display: flex; align-items: center; justify-content: center;
   color: #fff; font-size: 11px; font-family: var(--mono);
 }
+
+/* ── Hide Emoji ── */
+.card-icon { display: none !important; }
+.card-inner { grid-template-columns: 1fr !important; }
