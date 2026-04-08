@@ -210,7 +210,7 @@ var App = {
   /* ── TABS ── */
   renderTabs: function () {
     return Promise.all([API.getTabs(), API.getArticles({})]).then(function (res) {
-      var tabs = res[0] || [];
+      var tabs = ['全部'].concat(res[0] || []);
       var allArts = res[1] || [];
       var nav = document.getElementById('tabs-row');
       nav.innerHTML = '';
