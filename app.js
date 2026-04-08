@@ -258,7 +258,7 @@ var App = {
   /* ── FEED ── */
   renderFeed: function () {
     var feedEl = document.getElementById('news-feed');
-    feedEl.innerHTML = '<div class="empty-state"><div class="empty-icon">⏳</div><div class="empty-text">LOADING…</div></div>';
+    feedEl.innerHTML = '<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-text">LOADING…</div></div>';
 
     var opts = {
       tab:    State.currentTab,
