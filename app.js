@@ -285,7 +285,7 @@ var App = {
       var feedLabel = document.getElementById('feed-label');
       var feedCount = document.getElementById('feed-count');
       if (feedLabel) feedLabel.textContent = State.currentFeed==='following' ? '// 关注动态' : '// '+State.currentTab;
-      if (feedCount) feedCount.textContent = arts.length + ' 条战报' + (State.searchQuery?' · 搜索："'+State.searchQuery+'"':'');
+      if (feedCount) feedCount.textContent = arts.length + ' 篇文章' + (State.searchQuery?' · 搜索："'+State.searchQuery+'"':'');
 
       if (arts.length === 0) {
         var msg = State.currentFeed==='following' ? '关注的人还没有发布内容' : '暂无相关文章';
