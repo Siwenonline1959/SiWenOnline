@@ -288,8 +288,8 @@ var App = {
       if (feedCount) feedCount.textContent = arts.length + ' 条战报' + (State.searchQuery?' · 搜索："'+State.searchQuery+'"':'');
 
       if (arts.length === 0) {
-        var msg = State.currentFeed==='following' ? '关注的人还没有发布内容' : '暂无相关战报';
-        feedEl.innerHTML = '<div class="empty-state"><div class="empty-icon">📡</div><div class="empty-text">// NO SIGNAL — '+msg+'</div></div>';
+        var msg = State.currentFeed==='following' ? '关注的人还没有发布内容' : '暂无相关文章';
+        feedEl.innerHTML = '<div class="empty-state"><div class="empty-icon">📖</div><div class="empty-text">// NO SIGNAL — '+msg+'</div></div>';
         return;
       }
       feedEl.innerHTML = arts.map(function(a,i){ return Render.card(a,i); }).join('');
