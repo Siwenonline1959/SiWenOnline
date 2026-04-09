@@ -1143,7 +1143,7 @@ var Admin = {
     var url      = document.getElementById('pub2-url').value.trim();
     var category = document.getElementById('pub2-category').value;
     var desc     = document.getElementById('pub2-desc').value.trim();
-    var emoji    = document.getElementById('pub2-emoji').value.trim()||'📡';
+    var emoji = (document.getElementById('pub2-emoji') ? document.getElementById('pub2-emoji').value.trim() : '') || '📡';
     var alert    = document.getElementById('pub2-alert').value;
     if (!title){ Toast.show('请填写文章标题',true); return; }
     if (!source){ Toast.show('请填写来源媒体',true); return; }
@@ -1171,7 +1171,7 @@ var Admin = {
     var url      = document.getElementById('pub-url').value.trim();
     var category = document.getElementById('pub-category').value;
     var desc     = document.getElementById('pub-desc').value.trim();
-    var emoji    = document.getElementById('pub-emoji').value.trim()||'📡';
+    var emoji = (document.getElementById('pub2-emoji') ? document.getElementById('pub2-emoji').value.trim() : '') || '📡';
     var alert    = document.getElementById('pub-alert').value;
     var featured = document.getElementById('pub-featured').checked;
     if (!title){ Toast.show('请填写文章标题',true); return; }
