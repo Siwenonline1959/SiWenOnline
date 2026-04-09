@@ -1138,62 +1138,54 @@ var Admin = {
   },
 
   publish2: function () {
-    var title    = document.getElementById('pub2-title').value.trim();
-    var source   = document.getElementById('pub2-source').value.trim();
-    var url      = document.getElementById('pub2-url').value.trim();
-    var category = document.getElementById('pub2-category').value;
-    var desc     = document.getElementById('pub2-desc').value.trim();
-    var emoji = (document.getElementById('pub2-emoji') ? document.getElementById('pub2-emoji').value.trim() : '') || '📡';
-    var alert    = document.getElementById('pub2-alert').value;
-    if (!title){ Toast.show('请填写文章标题',true); return; }
-    if (!source){ Toast.show('请填写来源媒体',true); return; }
-    if (!url){ Toast.show('请填写原文链接',true); return; }
-    if (!/^https?:\/\//i.test(url)){ Toast.show('链接须以 http:// 或 https:// 开头',true); return; }
-    if (!category){ Toast.show('请选择分类',true); return; }
-    Toast.show('上传中…');
-    ImageUpload.uploadAll('pub2').then(function(images){
-      return API.publishArticle({title,source,url,category,desc,emoji,alertLevel:alert,featured:false,images});
-    }).then(function(){
-        ['pub2-title','pub2-source','pub2-url','pub2-desc','pub2-emoji'].forEach(function(id){
-          document.getElementById(id).value='';
-        });
-        document.getElementById('pub2-alert').value='';
-        ImageUpload.reset('pub2');
-        Dialog.close('dlg-publish');
-        App.refresh();
-        Toast.show('文章已发布 ✓');
-      }).catch(function(e){ Toast.show('发布失败：'+(e.message||''),true); });
-  },
+     var title    = document.getElementById('pub2-title').value.trim();
+     var source   = document.getElementById('pub2-source').value.trim();
+     var url      = document.getElementById('pub2-url').value.trim();
+     var category = document.getElementById('pub2-category').value;
+     var desc     = document.getElementById('pub2-desc').value.trim();
+     var alert    = document.getElementById('pub2-alert').value;
+     if (!title){ Toast.show('请填写文章标题',true); return; }
+     if (!source){ Toast.show('请填写来源媒体',true); return; }
+     if (!url){ Toast.show('请填写原文链接',true); return; }
+     if (!/^https?:\/\//i.test(url)){ Toast.show('链接须以 http:// 或 https:// 开头',true); return; }
+     if (!category){ Toast.show('请选择分类',true); return; }
+     API.publishArticle({title,source,url,category,desc,emoji:'📄',alertLevel:alert,featured:false,images:[]})
+       .then(function(){
+         ['pub2-title','pub2-source','pub2-url','pub2-desc'].forEach(function(id){
+           var el = document.getElementById(id); if (el) el.value='';
+         });
+         var al = document.getElementById('pub2-alert'); if (al) al.value='';
+         Dialog.close('dlg-publish');
+         App.refresh();
+         Toast.show('已提交 ✓');
+       }).catch(function(e){ Toast.show('提交失败：'+(e.message||''),true); });
+   },
 
   publish: function () {
-    var title    = document.getElementById('pub-title').value.trim();
-    var source   = document.getElementById('pub-source').value.trim();
-    var url      = document.getElementById('pub-url').value.trim();
-    var category = document.getElementById('pub-category').value;
-    var desc     = document.getElementById('pub-desc').value.trim();
-    var emoji = (document.getElementById('pub2-emoji') ? document.getElementById('pub2-emoji').value.trim() : '') || '📡';
-    var alert    = document.getElementById('pub-alert').value;
-    var featured = document.getElementById('pub-featured').checked;
-    if (!title){ Toast.show('请填写文章标题',true); return; }
-    if (!source){ Toast.show('请填写来源媒体',true); return; }
-    if (!url){ Toast.show('请填写原文链接',true); return; }
-    if (!/^https?:\/\//i.test(url)){ Toast.show('链接须以 http:// 或 https:// 开头',true); return; }
-    if (!category){ Toast.show('请选择分类',true); return; }
-    Toast.show('上传中…');
-    ImageUpload.uploadAll('pub').then(function(images){
-      return API.publishArticle({title,source,url,category,desc,emoji,alertLevel:alert,featured,images});
-    }).then(function(){
-        ['pub-title','pub-source','pub-url','pub-desc','pub-emoji'].forEach(function(id){
-          document.getElementById(id).value='';
-        });
-        document.getElementById('pub-alert').value='';
-        document.getElementById('pub-featured').checked=false;
-        ImageUpload.reset('pub');
-        Dialog.close('dlg-admin');
-        App.refresh();
-        Toast.show('战报已发布 ✓');
-      }).catch(function(e){ Toast.show('发布失败：'+(e.message||''),true); });
-  },
+     var title    = document.getElementById('pub-title').value.trim();
+     var source   = document.getElementById('pub-source').value.trim();
+     var url      = document.getElementById('pub-url').value.trim();
+     var category = document.getElementById('pub-category').value;
+     var desc     = document.getElementById('pub-desc').value.trim();
+     var alert    = document.getElementById('pub-alert').value;
+     var featured = document.getElementById('pub-featured').checked;
+     if (!title){ Toast.show('请填写文章标题',true); return; }
+     if (!source){ Toast.show('请填写来源媒体',true); return; }
+     if (!url){ Toast.show('请填写原文链接',true); return; }
+     if (!/^https?:\/\//i.test(url)){ Toast.show('链接须以 http:// 或 https:// 开头',true); return; }
+     if (!category){ Toast.show('请选择分类',true); return; }
+     API.publishArticle({title,source,url,category,desc,emoji:'📄',alertLevel:alert,featured,images:[]})
+       .then(function(){
+         ['pub-title','pub-source','pub-url','pub-desc'].forEach(function(id){
+           var el = document.getElementById(id); if (el) el.value='';
+         });
+         var al = document.getElementById('pub-alert'); if (al) al.value='';
+         var pf = document.getElementById('pub-featured'); if (pf) pf.checked=false;
+         Dialog.close('dlg-admin');
+         App.refresh();
+         Toast.show('已提交 ✓');
+       }).catch(function(e){ Toast.show('提交失败：'+(e.message||''),true); });
+   },
 
   _renderManage: function () {
     API.getArticles({}).then(function(arts){
